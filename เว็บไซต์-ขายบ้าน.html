@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>เว็บไซต์ขายบ้าน — ตัวอย่าง</title>
+  <style>
+    /* Reset and base */
+    :root {
+      --green-dark:#2E8B57;
+      --green-mid:#3CB371;
+      --green-light:#98FB98;
+      --text:#04301a;
+      --maxwidth:1000px;
+    }
+    *{box-sizing:border-box}
+    body{font-family: "Noto Sans", sans-serif; margin:0; color:var(--text); background:#fafafa;}
+    .container{max-width:var(--maxwidth); margin:0 auto; padding:0 1rem;}
+    header{background:var(--green-dark); color:#fff; padding:1rem 0;}
+    .header-inner{display:flex;align-items:center;gap:1rem; justify-content:center;}
+    .logo{height:60px; width:60px; object-fit:contain; border-radius:6px; background:#fff; padding:4px;}
+    nav{background:var(--green-light);} 
+    nav ul{list-style:none; display:flex; gap:0.5rem; margin:0; padding:0.5rem; justify-content:center; flex-wrap:wrap;}
+    nav a{display:block; padding:0.6rem 1rem; color:var(--text); text-decoration:none; font-weight:600; border-radius:6px;}
+    nav a.active, nav a:hover{background:#90EE90;}
+    main{padding:2rem 0;}
+    .section{display:none;}
+    .section.active{display:block;}
+    .hero{display:grid; grid-template-columns:1fr; gap:1.5rem; align-items:center;}
+    @media(min-width:800px){ .hero{grid-template-columns:1fr 1fr;} }
+    .card{background:#fff; border-radius:10px; padding:1rem; box-shadow:0 2px 6px rgba(0,0,0,.06);} 
+    .house-img{width:100%; height:auto; border-radius:8px; display:block;}
+    .table{width:100%; border-collapse:collapse; margin-top:1rem;}
+    .table th, .table td{border:1px solid #ddd; padding:.7rem; text-align:left;}
+    .btn{display:inline-block; padding:.6rem 1rem; background:var(--green-mid); color:#fff; border:none; border-radius:6px; cursor:pointer; text-decoration:none;}
+    .footer{background:#f1f7f1; text-align:center; padding:1rem; font-size:0.9rem;}
+    .input, input[type="number"], input[type="text"], input[type="email"], textarea, select{width:100%; padding:.6rem; border-radius:6px; border:1px solid #ccc;}
+    .form-grid{display:grid; gap: .8rem;}
+    .grid-2{grid-template-columns:repeat(2,1fr);}
+    .small{font-size:0.9rem;color:#555;}
+    .result{background:#f7fffa; padding:.8rem; border-radius:6px; margin-top:.8rem; border:1px solid #e6ffee;}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <img src="https://via.placeholder.com/100x60?text=LOGO" alt="โลโก้" class="logo">
+      <h1 style="margin:0;">ตัวอย่างเว็บไซต์ขายบ้าน</h1>
+    </div>
+  </header>
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="#" data-target="home" class="active">หน้าหลัก</a></li>
+        <li><a href="#" data-target="details">รายละเอียด</a></li>
+        <li><a href="#" data-target="calculator">คำนวณดอกเบี้ย</a></li>
+        <li><a href="#" data-target="contact">ติดต่อเรา</a></li>
+      </ul>
+    </div>
+  </nav>
+  <main class="container">
+
+    <!-- HOME -->
+    <section id="home" class="section active">
+      <div class="hero">
+        <div>
+          <div class="card">
+            <h2>ยินดีต้อนรับสู่เว็บไซต์ขายบ้าน</h2>
+            <p class="small">บ้านเดี่ยว 3 ห้องนอน 2 ห้องน้ำ พื้นที่ 60 ตร.ว. ทำเลดี ใกล้โรงเรียน ใกล้ห้าง</p>
+            <table class="table">
+              <tr><th>ราคา</th><td id="price-display">3,200,000 ฿</td></tr>
+              <tr><th>ที่ตั้ง</th><td>เมืองตัวอย่าง ตำบลตัวอย่าง อำเภอตัวอย่าง</td></tr>
+              <tr><th>ขนาด</th><td>60 ตารางวา</td></tr>
+            </table>
+            <div style="margin-top:1rem;">
+              <a class="btn" href="#" id="buy-now">สนใจจอง / ติดต่อเจ้าของ</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <img src="https://via.placeholder.com/800x500?text=%E0%B8%A3%E0%B8%B9%E0%B9%89%E0%B8%9A%E0%B9%88%E0%B8%B2%E0%B8%99" alt="รูปบ้าน" class="house-img" id="main-house-img">
+            <p class="small">เปลี่ยนรูปได้โดยแทนที่ไฟล์ภาพ หรือแก้ URL ของ <code>img#main-house-img</code></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DETAILS -->
+    <section id="details" class="section">
+      <div class="card">
+        <h2>รายละเอียดเพิ่มเติม</h2>
+        <p>คำอธิบายบ้าน: บ้านหลังนี้สร้างเมื่อปี 2565 ตกแต่งพร้อมอยู่ ใกล้ระบบขนส่งสาธารณะ</p>
+        <h3>สิ่งอำนวยความสะดวก</h3>
+        <ul>
+          <li>ที่จอดรถ 2 คัน</li>
+          <li>ครัวบิวท์อิน</li>
+          <li>สวนหลังบ้าน</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CALCULATOR -->
+    <section id="calculator" class="section">
+      <div class="card">
+        <h2>คำนวณการผ่อน (ประมาณ)</h2>
+        <form id="mortgage-form" onsubmit="return false;">
+          <div class="form-grid grid-2" style="display:grid; grid-template-columns:repeat(2,1fr); gap:10px;">
+            <div>
+              <label>ราคารวม (บาท)</label>
+              <input type="number" id="price" value="3200000" min="0" step="1000">
+            </div>
+            <div>
+              <label>เงินดาวน์ (%)</label>
+              <input type="number" id="down" value="10" min="0" max="100" step="1">
+            </div>
+            <div>
+              <label>อัตราดอกเบี้ยต่อปี (%)</label>
+              <input type="number" id="rate" value="5.5" min="0" step="0.01">
+            </div>
+            <div>
+              <label>ระยะเวลา (ปี)</label>
+              <input type="number" id="years" value="30" min="1" step="1">
+            </div>
+          </div>
+          <button class="btn" id="calc-btn" style="margin-top:12px;">คำนวณ</button>
+          <div id="calc-result" class="result" style="display:none;">
+            <p><strong>จำนวนงวดต่อเดือน:</strong> <span id="months">0</span></p>
+            <p><strong>ยอดผ่อนต่อเดือน (โดยประมาณ):</strong> <span id="monthly">0</span> ฿</p>
+            <p class="small"><strong>รวมดอกเบี้ยโดยประมาณ:</strong> <span id="total-interest">0</span> ฿</p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="card">
+        <h2>ติดต่อเรา</h2>
+        <p class="small">กรอกข้อมูลด้านล่าง หรือคลิกปุ่ม "สนใจจอง" ที่หน้าแรกเพื่อติดต่อทางอีเมล</p>
+        <form id="contact-form" onsubmit="submitContact(event)">
+          <label>ชื่อ-สกุล</label>
+          <input type="text" id="contact-name" required>
+          <label>อีเมล</label>
+          <input type="email" id="contact-email" required>
+          <label>เบอร์โทร</label>
+          <input type="text" id="contact-phone" required>
+          <label>ข้อความ</label>
+          <textarea id="contact-message" rows="4" required></textarea>
+          <button class="btn" type="submit">ส่งข้อความ</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 ชื่อเจ้าของ ใส่ข้อมูลที่อยู่ / เบอร์โทร</p>
+    </div>
+  </footer>
+
+  <script>
+    // Navigation
+    document.querySelectorAll('nav a').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const target = a.dataset.target;
+        showSection(target);
+        // set active style
+        document.querySelectorAll('nav a').forEach(x=>x.classList.remove('active'));
+        a.classList.add('active');
+      });
+    });
+    function showSection(id){
+      document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+      const el = document.getElementById(id);
+      if(el) el.classList.add('active');
+      // scroll to top
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+
+    // Buy button -> open contact section and prefill message
+    document.getElementById('buy-now').addEventListener('click', function(e){
+      e.preventDefault();
+      showSection('contact');
+      document.querySelector('nav a[data-target="contact"]').classList.add('active');
+      // prefill message
+      const nameField = document.getElementById('contact-name');
+      const msgField = document.getElementById('contact-message');
+      msgField.value = "สวัสดีค่ะ/ครับ ผม/ดิฉันสนใจซื้อบ้านที่ประกาศ (ราคา " + document.getElementById('price').value + " บาท). กรุณาติดต่อกลับด้วยค่ะ/ครับ";
+    });
+
+    // Mortgage calculator
+    function formatNumber(n){
+      return n.toLocaleString('th-TH');
+    }
+    document.getElementById('calc-btn').addEventListener('click', function(){
+      const price = Number(document.getElementById('price').value) || 0;
+      const downPct = Number(document.getElementById('down').value) || 0;
+      const ratePct = Number(document.getElementById('rate').value) || 0;
+      const years = Number(document.getElementById('years').value) || 0;
+
+      const down = price * (downPct/100);
+      const principal = price - down;
+      const monthlyRate = (ratePct/100)/12;
+      const n = years*12;
+
+      let monthly = 0;
+      if(monthlyRate === 0) {
+        monthly = principal / n;
+      } else {
+        // M = P * r*(1+r)^n / ((1+r)^n - 1)
+        const pow = Math.pow(1+monthlyRate, n);
+        monthly = principal * (monthlyRate * pow) / (pow - 1);
+      }
+      const totalPaid = monthly * n;
+      const totalInterest = totalPaid - principal;
+
+      document.getElementById('months').textContent = n;
+      document.getElementById('monthly').textContent = formatNumber(Math.round(monthly));
+      document.getElementById('total-interest').textContent = formatNumber(Math.round(totalInterest));
+      document.getElementById('calc-result').style.display = 'block';
+    });
+
+    // Simple contact form -> mailto (client) fallback
+    function submitContact(e){
+      e.preventDefault();
+      const name = document.getElementById('contact-name').value.trim();
+      const email = document.getElementById('contact-email').value.trim();
+      const phone = document.getElementById('contact-phone').value.trim();
+      const message = document.getElementById('contact-message').value.trim();
+
+      if(!name || !email || !phone || !message){
+        alert('กรุณากรอกข้อมูลให้ครบทุกช่อง');
+        return;
+      }
+
+      // Use mailto to open user's email client (simple solution)
+      const subject = encodeURIComponent('สนใจซื้อบ้าน');
+      const body = encodeURIComponent('ชื่อ: ' + name + '\nอีเมล: ' + email + '\nเบอร์โทร: ' + phone + '\n\n' + message);
+      window.location.href = 'mailto:youremail@example.com?subject=' + subject + '&body=' + body;
+      // Replace youremail@example.com ด้วยอีเมลของเจ้าของจริง
+    }
+  </script>
+</body>
+</html>
